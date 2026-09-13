@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For My Mutki ❤️</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Poppins", sans-serif;
+      color: #5a1835;
+
+      background:
+        radial-gradient(circle at top left, #ffd6e7 0, transparent 35%),
+        radial-gradient(circle at bottom right, #ffc2d9 0, transparent 35%),
+        linear-gradient(135deg, #fff0f5, #ffe1ec, #fff5f8);
+
+      overflow-x: hidden;
+    }
+
+    .romantic-font {
+      font-family: "Dancing Script", cursive;
+    }
+
+    /* Floating hearts */
+
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      animation: floatHeart linear forwards;
+      opacity: 0;
+    }
+
+    @keyframes floatHeart {
+
+      0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .8;
+      }
+
+      90% {
+        opacity: .5;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+
+    }
+
+    /* Main card */
+
+    .page {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      padding: 30px 15px;
+    }
+
+    .glass-card {
+      max-width: 850px;
+      margin: auto;
+
+      padding: 45px 25px;
+
+      border-radius: 30px;
+
+      background: rgba(255,255,255,.76);
+
+      border: 1px solid rgba(255,255,255,.8);
+
+      box-shadow:
+        0 20px 60px rgba(135,27,74,.15);
+
+      backdrop-filter: blur(15px);
+    }
+
+    .hero-heart {
+      font-size: 75px;
+      display: inline-block;
+
+      animation: heartbeat 1.3s infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0%,100% {
+        transform: scale(1);
+      }
+
+      15% {
+        transform: scale(1.15);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.12);
+      }
+
+      60% {
+        transform: scale(1);
+      }
+
+    }
+
+    .title {
+      font-family: "Dancing Script", cursive;
+
+      font-size: clamp(3rem, 10vw, 5.5rem);
+
+      font-weight: 700;
+
+      color: #c2185b;
+
+      line-height: 1;
+    }
+
+    .subtitle {
+      color: #81304f;
+    }
+
+    /* Buttons */
+
+    .love-btn {
+      border: none;
+      border-radius: 999px;
+
+      padding: 14px 35px;
+
+      font-weight: 600;
+      font-size: 1.05rem;
+
+      box-shadow:
+        0 10px 25px rgba(160,30,90,.18);
+
+      transition: .25s ease;
+    }
+
+    #yesBtn {
+      background:
+        linear-gradient(135deg,#e91e63,#c2185b);
+
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    #noBtn {
+      position: fixed;
+
+      background: white;
+      color: #c2185b;
+
+      border: 2px solid #f4a5c2;
+
+      z-index: 9999;
+
+      transition:
+        left .15s ease,
+        top .15s ease;
+
+      white-space: nowrap;
+    }
+
+    /* Sections */
+
+    .hidden {
+      display: none;
+    }
+
+    .love-message {
+      animation: popIn .8s ease forwards;
+    }
+
+    @keyframes popIn {
+
+      from {
+        opacity: 0;
+        transform: scale(.7);
+      }
+
+      70% {
+        transform: scale(1.05);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+    }
+
+    /* Gifts */
+
+    .gift-card {
+      height: 100%;
+
+      border: none;
+
+      border-radius: 22px;
+
+      background: rgba(255,255,255,.88);
+
+      box-shadow:
+        0 10px 30px rgba(130,30,70,.10);
+
+      transition: .3s ease;
+    }
+
+    .gift-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 18px 35px rgba(130,30,70,.17);
+    }
+
+    .gift-icon {
+      font-size: 50px;
+    }
+
+    .gift-btn {
+      display: inline-block;
+
+      border-radius: 999px;
+
+      background: #c2185b;
+
+      color: white;
+
+      text-decoration: none;
+
+      border: none;
+
+      padding: 10px 22px;
+
+      cursor: pointer;
+    }
+
+    .gift-btn:hover {
+      background: #ad1457;
+      color: white;
+    }
+
+    .selected {
+      border: 3px solid #e91e63 !important;
+
+      transform: translateY(-5px);
+
+      box-shadow:
+        0 15px 40px rgba(233,30,99,.25);
+    }
+
+    .memory-box {
+      border-radius: 22px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255,255,255,.8),
+          rgba(255,220,232,.8)
+        );
+
+      padding: 25px;
+    }
+
+    .quote {
+      font-family: "Dancing Script", cursive;
+
+      font-size: 2rem;
+
+      color: #ad1457;
+    }
+
+    /* Confetti */
+
+    .confetti {
+      position: fixed;
+
+      top: -30px;
+
+      z-index: 10000;
+
+      pointer-events: none;
+
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes fall {
+
+      to {
+        transform:
+          translateY(110vh)
+          rotate(720deg);
+
+        opacity: 0;
+      }
+
+    }
+
+    @media(max-width:576px) {
+
+      .glass-card {
+        padding: 35px 18px;
+      }
+
+      .hero-heart {
+        font-size: 60px;
+      }
+
+      .love-btn {
+        padding: 12px 25px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="hearts" id="hearts"></div>
+
+  <main class="page">
+
+    <!-- QUESTION -->
+
+    <section id="questionSection">
+
+      <div class="glass-card text-center">
+
+        <div class="hero-heart">
+          ❤️
+        </div>
+
+        <p class="mt-3 mb-2">
+          I have a very important question...
+        </p>
+
+        <h1 class="title">
+          Do you love me?
+        </h1>
+
+        <p class="subtitle mt-3">
+          Choose your answer carefully. 😌
+        </p>
+
+        <div class="mt-5">
+
+          <button
+            id="yesBtn"
+            class="love-btn"
+            onclick="sayYes()"
+          >
+            Yes ❤️
+          </button>
+
+        </div>
+
+        <p class="small text-muted mt-4">
+          P.S. There is only one correct answer. 😂
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOVE MESSAGE -->
+
+    <section
+      id="loveSection"
+      class="hidden"
+    >
+
+      <div class="glass-card text-center love-message">
+
+        <div class="hero-heart">
+          💖
+        </div>
+
+        <h2 class="title mt-3">
+          I knew it!
+        </h2>
+
+        <p class="romantic-font quote mt-3">
+          I love you too, mutki 😘
+        </p>
+
+        <p>
+          You just made my heart very happy. ❤️
+        </p>
+
+        <div class="memory-box mt-4">
+
+          <p>
+            Out of all the people in this world...
+          </p>
+
+          <h3 class="romantic-font fs-1">
+            I'm so glad I got you. 🥰
+          </h3>
+
+          <p class="mb-0">
+            My favourite person.
+            My favourite smile.
+            My favourite everything. ❤️
+          </p>
+
+        </div>
+
+        <button
+          id="giftQuestion"
+          class="love-btn mt-4"
+          onclick="showGifts()"
+          style="background:#8e2451;color:white;"
+        >
+          Now tell me what you want... 🎁
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- GIFTS -->
+
+    <section
+      id="giftSection"
+      class="hidden"
+    >
+
+      <div class="glass-card">
+
+        <div class="text-center mb-5">
+
+          <div class="gift-icon">
+            🎁
+          </div>
+
+          <h2
+            class="title mt-3"
+            style="font-size:4rem;"
+          >
+            Pick Your Gift
+          </h2>
+
+          <p class="subtitle">
+            You wanted something, didn't you? 😏
+            <br>
+            Go ahead. Choose one. ❤️
+          </p>
+
+        </div>
+
+
+        <div
+          id="giftContainer"
+          class="row g-4"
+        ></div>
+
+
+        <!-- Confirmation -->
+
+        <div
+          id="confirmation"
+          class="text-center hidden mt-5"
+        >
+
+          <div class="memory-box">
+
+            <div style="font-size:50px;">
+              🥰
+            </div>
+
+            <h3 class="romantic-font fs-1">
+              You picked it!
+            </h3>
+
+            <p id="chosenGift"></p>
+
+            <p class="text-muted">
+              Let me know if you REALLY want it...
+              😌
+            </p>
+
+            <button
+              class="love-btn"
+              onclick="confirmGift()"
+              style="background:#c2185b;color:white;"
+            >
+              Yes, I want this! ❤️
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- Saved message -->
+
+        <div
+          id="savedMessage"
+          class="hidden text-center mt-5"
+        >
+
+          <div class="memory-box">
+
+            <div style="font-size:55px;">
+              💌
+            </div>
+
+            <h3 class="romantic-font fs-1">
+              Request received!
+            </h3>
+
+            <p>
+              Your husband has officially received
+              your gift request. 😌❤️
+            </p>
+
+            <p class="quote">
+              Now wait for your surprise... 🎁
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section
+      id="finalSection"
+      class="hidden"
+    >
+
+      <div class="glass-card text-center">
+
+        <div class="hero-heart">
+          💋
+        </div>
+
+        <h2 class="title mt-3">
+          One Last Thing...
+        </h2>
+
+        <p class="quote mt-4">
+          If I had to choose you again,
+          I'd choose you every single time.
+        </p>
+
+        <hr>
+
+        <p>
+          Thank you for being my favourite
+          notification,
+          my favourite conversation,
+          and my favourite human. ❤️
+        </p>
+
+        <p class="romantic-font fs-1">
+          I love you. Always. ❤️
+        </p>
+
+        <div style="font-size:30px;">
+          🫶🏻 💕 🫶🏻
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- RUNAWAY NO -->
+
+  <button
+    id="noBtn"
+    class="love-btn"
+  >
+    No 😏
+  </button>
+
+
+<script>
+
+  /*
+  ==================================================
+  IMPORTANT
+  ==================================================
+
+  PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL BELOW.
+
+  Example:
+
+  const SCRIPT_URL =
+    "https://script.google.com/macros/s/XXXX/exec";
+
+  ==================================================
+  */
+
+  const SCRIPT_URL =
+    "PASTE-YOUR-GOOGLE-APPS-SCRIPT-URL-HERE";
+
+
+  /*
+  ==================================================
+  GIFT LINKS
+  ==================================================
+  */
+
+  const gifts = [
+
+    {
+      icon: "🎁",
+
+      title: "Gift #1",
+
+      description:
+        "I think you might like this one. ❤️",
+
+      url:
+        "https://amzn.in/d/005r84IK"
+    },
+
+    {
+      icon: "💝",
+
+      title: "Gift #2",
+
+      description:
+        "Okay... this one is also pretty cute. 😘",
+
+      url:
+        "https://amzn.in/d/07OW90CF"
+    },
+
+    {
+      icon: "👗",
+
+      title: "Pretty Kurta Set",
+
+      description:
+        "Something pretty for my pretty girl. 🥰",
+
+      url:
+        "https://dl.flipkart.com/dl/manojava-women-kurta-palazzo-dupatta-set/p/itmfa2ba1b5205bf?pid=ETHH7FHZCZCE67KG&lid=LSTETHH7FHZCZCE67KGWFE7NN&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJhdGxhc19wcm9kdWN0X3N1bW1hcnlfZ3JpZF9saWZlc3R5bGVfdjIiLCJwcnB0Ijoic3AiLCJtaWQiOiJhZHMifQ==&_refId=&_appId=CL"
+    },
+
+    {
+      icon: "👠",
+
+      title: "Cute Bellies",
+
+      description:
+        "Because you can never have too many shoes. 😌",
+
+      url:
+        "https://dl.flipkart.com/dl/ginger-lifestyle-women-bellies/p/itm3303481c45dd9?pid=SHOHKR6FG6XDKVMM&lid=LSTSHOHKR6FG6XDKVMMZFKV6O&hl_lid=&marketplace=FLIPKART&fm=eyJ3dHAiOiJhdGxhc19wcm9kdWN0X3N1bW1hcnlfZ3JpZF9saWZlc3R5bGVfdjIiLCJwcnB0Ijoic3AiLCJtaWQiOiJhZHMifQ==&_refId=&_appId=CL"
+    }
+
+  ];
+
+
+  /*
+  ==================================================
+  FLOATING HEARTS
+  ==================================================
+  */
+
+  const hearts =
+    document.getElementById("hearts");
+
+  const heartSymbols = [
+    "❤️",
+    "💕",
+    "💗",
+    "💖",
+    "💘",
+    "💝",
+    "💓"
+  ];
+
+  function createHeart() {
+
+    const heart =
+      document.createElement("div");
+
+    heart.className = "heart";
+
+    heart.innerText =
+      heartSymbols[
+        Math.floor(
+          Math.random() *
+          heartSymbols.length
+        )
+      ];
+
+    heart.style.left =
+      Math.random() * 100 + "%";
+
+    heart.style.fontSize =
+      (15 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration =
+      (6 + Math.random() * 7) + "s";
+
+    hearts.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 14000);
+  }
+
+  setInterval(createHeart, 500);
+
+
+  /*
+  ==================================================
+  RUNAWAY NO BUTTON
+  ==================================================
+  */
+
+  const noBtn =
+    document.getElementById("noBtn");
+
+  const funnyMessages = [
+
+    "No 😏",
+    "Are you sure? 👀",
+    "Nice try 😂",
+    "Catch me first! 🏃‍♂️",
+    "Think again 😌",
+    "Wrong button 😂",
+    "Try YES ❤️",
+    "I'm too fast! 😜",
+    "Nope nope nope!",
+    "You know the answer ❤️"
+
+  ];
+
+  let noCount = 0;
+
+
+  function moveNoButton() {
+
+    noCount++;
+
+    const padding = 15;
+
+    const maxX =
+      window.innerWidth -
+      noBtn.offsetWidth -
+      padding;
+
+    const maxY =
+      window.innerHeight -
+      noBtn.offsetHeight -
+      padding;
+
+    const x =
+      padding +
+      Math.random() *
+      Math.max(maxX - padding, 1);
+
+    const y =
+      padding +
+      Math.random() *
+      Math.max(maxY - padding, 1);
+
+    noBtn.style.left =
+      x + "px";
+
+    noBtn.style.top =
+      y + "px";
+
+    noBtn.innerText =
+      funnyMessages[
+        Math.min(
+          noCount,
+          funnyMessages.length - 1
+        )
+      ];
+
+  }
+
+
+  document.addEventListener(
+    "mousemove",
+    function(e) {
+
+      if (
+        document.getElementById(
+          "questionSection"
+        ).style.display === "none"
+      ) {
+        return;
+      }
+
+      const rect =
+        noBtn.getBoundingClientRect();
+
+      const centerX =
+        rect.left +
+        rect.width / 2;
+
+      const centerY =
+        rect.top +
+        rect.height / 2;
+
+      const distance =
+        Math.sqrt(
+          Math.pow(
+            e.clientX - centerX,
+            2
+          ) +
+          Math.pow(
+            e.clientY - centerY,
+            2
+          )
+        );
+
+      if (distance < 110) {
+        moveNoButton();
+      }
+
+    }
+  );
+
+
+  noBtn.addEventListener(
+    "touchstart",
+    function(e) {
+
+      e.preventDefault();
+
+      moveNoButton();
+
+    },
+    { passive:false }
+  );
+
+
+  noBtn.addEventListener(
+    "click",
+    function(e) {
+
+      e.preventDefault();
+
+      moveNoButton();
+
+    }
+  );
+
+
+  window.addEventListener(
+    "load",
+    function() {
+
+      noBtn.style.left =
+        "calc(50% + 70px)";
+
+      noBtn.style.top =
+        "63%";
+
+    }
+  );
+
+
+  /*
+  ==================================================
+  YES
+  ==================================================
+  */
+
+  function sayYes() {
+
+    noBtn.style.display =
+      "none";
+
+    document.getElementById(
+      "questionSection"
+    ).style.display =
+      "none";
+
+    document.getElementById(
+      "loveSection"
+    ).classList.remove("hidden");
+
+    sendResponse(
+      "YES ❤️",
+      ""
+    );
+
+    createConfetti();
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+  }
+
+
+  /*
+  ==================================================
+  SHOW GIFTS
+  ==================================================
+  */
+
+  function showGifts() {
+
+    document.getElementById(
+      "giftSection"
+    ).classList.remove("hidden");
+
+    document.getElementById(
+      "giftQuestion"
+    ).style.display =
+      "none";
+
+    renderGifts();
+
+    document.getElementById(
+      "giftSection"
+    ).scrollIntoView({
+      behavior:"smooth"
+    });
+
+  }
+
+
+  /*
+  ==================================================
+  RENDER GIFTS
+  ==================================================
+  */
+
+  function renderGifts() {
+
+    const container =
+      document.getElementById(
+        "giftContainer"
+      );
+
+    container.innerHTML = "";
+
+    gifts.forEach(
+      (gift,index) => {
+
+        const col =
+          document.createElement("div");
+
+        col.className =
+          "col-12 col-md-6";
+
+        col.innerHTML = `
+
+          <div
+            class="card gift-card p-4 text-center"
+            id="gift-${index}"
+          >
+
+            <div class="gift-icon">
+              ${gift.icon}
+            </div>
+
+            <h4 class="mt-3">
+              ${gift.title}
+            </h4>
+
+            <p class="text-muted">
+              ${gift.description}
+            </p>
+
+            <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+              <a
+                href="${gift.url}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="gift-btn"
+              >
+                See Gift 👀
+              </a>
+
+              <button
+                class="gift-btn"
+                onclick="selectGift(${index})"
+              >
+                I Want This ❤️
+              </button>
+
+            </div>
+
+          </div>
+
+        `;
+
+        container.appendChild(col);
+
+      }
+    );
+
+  }
+
+
+  /*
+  ==================================================
+  SELECT GIFT
+  ==================================================
+  */
+
+  let selectedGift = null;
+
+
+  function selectGift(index) {
+
+    selectedGift =
+      gifts[index];
+
+    document
+      .querySelectorAll(".gift-card")
+      .forEach(card => {
+
+        card.classList.remove(
+          "selected"
+        );
+
+      });
+
+    document
+      .getElementById(
+        "gift-" + index
+      )
+      .classList.add("selected");
+
+
+    document.getElementById(
+      "chosenGift"
+    ).innerHTML =
+
+      `You chose <strong>${selectedGift.title}</strong> 🎁`;
+
+    document.getElementById(
+      "confirmation"
+    ).classList.remove("hidden");
+
+    document.getElementById(
+      "confirmation"
+    ).scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  }
+
+
+  /*
+  ==================================================
+  CONFIRM GIFT
+  ==================================================
+  */
+
+  function confirmGift() {
+
+    if (!selectedGift) {
+      return;
+    }
+
+    sendResponse(
+      "YES ❤️",
+      selectedGift.title
+    );
+
+    document.getElementById(
+      "confirmation"
+    ).classList.add("hidden");
+
+    document.getElementById(
+      "savedMessage"
+    ).classList.remove("hidden");
+
+    document.getElementById(
+      "finalSection"
+    ).classList.remove("hidden");
+
+    createConfetti();
+
+    setTimeout(() => {
+
+      document.getElementById(
+        "finalSection"
+      ).scrollIntoView({
+        behavior:"smooth"
+      });
+
+    },500);
+
+  }
+
+
+  /*
+  ==================================================
+  SEND RESPONSE TO PRIVATE GOOGLE SHEET
+  ==================================================
+  */
+
+  function sendResponse(
+    answer,
+    gift
+  ) {
+
+    if (
+      SCRIPT_URL ===
+      "https://script.google.com/macros/s/AKfycbyvEgFqnxx5mm7Rr4dkMrG-r_I-ocLTMmSbjKaYIjsLWV9ztAZ6jn73UqG22GMulPFNdQ/exec"
+    ) {
+
+      console.warn(
+        "Google Apps Script URL has not been added."
+      );
+
+      return;
+
+    }
+
+
+    fetch(
+      SCRIPT_URL,
+      {
+        method:"POST",
+
+        mode:"no-cors",
+
+        headers:{
+          "Content-Type":
+            "text/plain;charset=utf-8"
+        },
+
+        body:JSON.stringify({
+
+          answer:answer,
+
+          gift:gift
+
+        })
+
+      }
+    )
+    .catch(error => {
+
+      console.error(
+        "Could not save response:",
+        error
+      );
+
+    });
+
+  }
+
+
+  /*
+  ==================================================
+  CONFETTI
+  ==================================================
+  */
+
+  function createConfetti() {
+
+    const symbols = [
+  
